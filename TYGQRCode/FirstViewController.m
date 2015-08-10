@@ -47,15 +47,13 @@
 - (IBAction)readButton:(id)sender {
     
     TYGQRCodeReaderViewController *read = [[TYGQRCodeReaderViewController alloc] init];
-    
-//    [self.navigationController pushViewController:read animated:YES];
-    
+
     [read successReadQRCode:^(NSString *codeString) {
         NSLog(@"123:::%@",codeString);
     }];
-    
+
     [self presentViewController:read animated:YES completion:^{
-    
+
     }];
 }
 
@@ -88,11 +86,11 @@
 
 - (void)createQRCode{
     NSString *string = [self.textView text];
-    
+
     //方法一：
-    //    TYGQRCodeCreate *tygQRCode = [[TYGQRCodeCreate alloc] initWithQRCodeString:string width:250];
-    //    self.imageView.image = tygQRCode.QRCodeImage;
-    
+    TYGQRCodeCreate *tygQRCode2 = [[TYGQRCodeCreate alloc] initWithQRCodeString:string width:250];
+    self.imageView.image = tygQRCode2.QRCodeImage;
+
     //方法二：
     TYGQRCodeCreate *tygQRCode = [[TYGQRCodeCreate alloc] init];
     tygQRCode.qrString = string;
@@ -102,6 +100,7 @@
     tygQRCode.qrBackGroundColor = qrBackGroundColor;
     self.imageView.image = [tygQRCode createQRCodeImage];
 }
+
 
 #pragma mark - tool
 /**
