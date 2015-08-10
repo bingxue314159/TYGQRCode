@@ -6,8 +6,8 @@ iOS自带的二维码生成与扫描！可自定义二维码色块颜色及背�
 至少为iOS7
 
 ##截图
-三级菜单  
-![demo3](https://github.com/bingxue314159/TYGQRCode/raw/master/TYGQRCode.gif "三级菜单")  
+生成二维码  
+![demo](https://github.com/bingxue314159/TYGQRCode/raw/master/TYGQRCode.gif "生成二维码")  
 
 
 ##代码
