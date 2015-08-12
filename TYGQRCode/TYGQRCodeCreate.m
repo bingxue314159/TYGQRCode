@@ -8,7 +8,9 @@
 
 #import "TYGQRCodeCreate.h"
 
-@implementation TYGQRCodeCreate
+@implementation TYGQRCodeCreate{
+    NSString *qrLevelStr;
+}
 
 - (instancetype)init
 {
@@ -35,8 +37,9 @@
 }
 
 - (void)initData{
+    self.backgroundColor = [UIColor whiteColor];
     self.qrString = @"";
-    self.qrLevel = @"M";
+    self.qrLevel = QRLevelM;
     self.qrColor = [UIColor blackColor];
     self.qrBackGroundColor = [UIColor whiteColor];
     self.qrWidth = 200;
@@ -53,7 +56,7 @@
     //设置内容和纠错级别
     NSData *data = [self.qrString dataUsingEncoding:NSUTF8StringEncoding];
     [filter setValue:data forKey:@"inputMessage"];
-    [filter setValue:self.qrLevel forKey:@"inputCorrectionLevel"];
+    [filter setValue:qrLevelStr forKey:@"inputCorrectionLevel"];
     CIImage *outputImage0 = [filter outputImage];
     
     //创建一个颜色滤镜,黑白色
@@ -89,6 +92,29 @@
     return _QRCodeImage;
 }
 
+- (void)setQrLevel:(QRLevelEnum)qrLevel{
+    _qrLevel = qrLevel;
+    switch (_qrLevel) {
+        case QRLevelM:{
+            qrLevelStr = @"M";
+            break;
+        }
+        case QRLevelH:{
+            qrLevelStr = @"H";
+            break;
+        }
+        case QRLevelL:{
+            qrLevelStr = @"L";
+            break;
+        }
+        case QRLevelQ:{
+            qrLevelStr = @"Q";
+            break;
+        }
+        default:
+            break;
+    }
+}
 
 #pragma mark - tools
 /**

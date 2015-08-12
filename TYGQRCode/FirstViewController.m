@@ -95,7 +95,7 @@
     TYGQRCodeCreate *tygQRCode = [[TYGQRCodeCreate alloc] init];
     tygQRCode.qrString = string;
     tygQRCode.qrWidth = 250;
-    tygQRCode.qrLevel = [self.levelSeg titleForSegmentAtIndex:self.levelSeg.selectedSegmentIndex];
+    tygQRCode.qrLevel = self.levelSeg.selectedSegmentIndex;
     tygQRCode.qrColor = qrColor;
     tygQRCode.qrBackGroundColor = qrBackGroundColor;
     self.imageView.image = [tygQRCode createQRCodeImage];

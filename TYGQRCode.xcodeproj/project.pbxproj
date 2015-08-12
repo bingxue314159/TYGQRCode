@@ -18,6 +18,7 @@
 		08AC18C81B72F73500DB7C2B /* TYGQRCodeCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18C71B72F73500DB7C2B /* TYGQRCodeCreate.m */; };
 		08AC18CB1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */; };
 		08AC18CD1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */; };
+		08ECB5341B7AD312006B9C06 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ECB5331B7AD312006B9C06 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYGQRCodeReaderViewController.xib; sourceTree = "<group>"; };
 		08AC18CE1B73576400DB7C2B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		08AC18CF1B73576400DB7C2B /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		08ECB5321B7AD312006B9C06 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		08ECB5331B7AD312006B9C06 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +103,8 @@
 				08AC18A41B72F6D500DB7C2B /* FirstViewController.m */,
 				08AC18A61B72F6D500DB7C2B /* SecondViewController.h */,
 				08AC18A71B72F6D500DB7C2B /* SecondViewController.m */,
-				08AC18C91B733ADA00DB7C2B /* TYGQRCodeReaderViewController.h */,
-				08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */,
-				08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */,
+				08ECB5321B7AD312006B9C06 /* ThirdViewController.h */,
+				08ECB5331B7AD312006B9C06 /* ThirdViewController.m */,
 				08AC18C51B72F70B00DB7C2B /* TYGQRCode */,
 				08AC18A91B72F6D500DB7C2B /* Main.storyboard */,
 				08AC18AC1B72F6D500DB7C2B /* Images.xcassets */,
@@ -145,6 +147,9 @@
 			children = (
 				08AC18C61B72F73500DB7C2B /* TYGQRCodeCreate.h */,
 				08AC18C71B72F73500DB7C2B /* TYGQRCodeCreate.m */,
+				08AC18C91B733ADA00DB7C2B /* TYGQRCodeReaderViewController.h */,
+				08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */,
+				08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */,
 			);
 			name = TYGQRCode;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				08AC18A51B72F6D500DB7C2B /* FirstViewController.m in Sources */,
 				08AC18CB1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m in Sources */,
 				08AC189F1B72F6D500DB7C2B /* main.m in Sources */,
+				08ECB5341B7AD312006B9C06 /* ThirdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +458,7 @@
 				08AC18C11B72F6D500DB7C2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		08AC18C21B72F6D500DB7C2B /* Build configuration list for PBXNativeTarget "TYGQRCodeTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +467,7 @@
 				08AC18C41B72F6D500DB7C2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
