@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -51,7 +51,7 @@
                                 </constraints>
                                 <string key="text">测试二维码生成！
 网站：http://www.uuxoo.com
-电话：18679217902
+电话：186****7902
 e-mail:bingxue314159@163.com
 说明：测试二维码生成DEMO</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -444,6 +444,7 @@ e-mail:bingxue314159@163.com
                         <viewControllerLayoutGuide type="bottom" id="OA3-Ra-2EI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wHy-xp-GAf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -467,7 +468,7 @@ e-mail:bingxue314159@163.com
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="keyPath">
+                        <userDefinedRuntimeAttribute type="color" keyPath="self.tabBar.tintColor">
                             <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
