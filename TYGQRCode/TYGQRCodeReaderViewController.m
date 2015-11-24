@@ -136,8 +136,10 @@
         [session stopRunning];
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex : 0 ];
         //输出扫描字符串
-        _successReadQRCode(metadataObject.stringValue);
-        
+        if (_successReadQRCode) {
+            _successReadQRCode(metadataObject.stringValue);
+        }
+
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:metadataObject.stringValue delegate:self cancelButtonTitle:@"继续扫描" otherButtonTitles:@"确定并退出", nil];
         alert.tag = 1;
         [alert show];

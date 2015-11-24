@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TYGQRCodeReaderViewController">
@@ -51,6 +51,14 @@
                             <include reference="ZXQ-4O-lDe"/>
                         </mask>
                     </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3d-G0-JO2">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXs-5I-oex">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OV4-oB-Bnk">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -114,14 +122,6 @@
                         </mask>
                     </variation>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3d-G0-JO2">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXs-5I-oex">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -151,9 +151,9 @@
                 <mask key="subviews">
                     <exclude reference="oix-wu-RAq"/>
                     <exclude reference="MQT-Qx-8jJ"/>
-                    <exclude reference="OV4-oB-Bnk"/>
                     <exclude reference="J3d-G0-JO2"/>
                     <exclude reference="kXs-5I-oex"/>
+                    <exclude reference="OV4-oB-Bnk"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="C5t-Wx-tRg"/>
@@ -180,9 +180,9 @@
                 <mask key="subviews">
                     <include reference="oix-wu-RAq"/>
                     <include reference="MQT-Qx-8jJ"/>
-                    <include reference="OV4-oB-Bnk"/>
                     <include reference="J3d-G0-JO2"/>
                     <include reference="kXs-5I-oex"/>
+                    <include reference="OV4-oB-Bnk"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="C5t-Wx-tRg"/>

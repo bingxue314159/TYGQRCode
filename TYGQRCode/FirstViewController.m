@@ -26,7 +26,16 @@
     qrColor = [UIColor blackColor];
     qrBackGroundColor = [UIColor whiteColor];
     
-    [self createQRCode];
+    [self createQRCodeWithString:self.textView.text];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,16 +49,19 @@
 
 - (IBAction)createButton:(id)sender {
     
-    [self createQRCode];
+    [self createQRCodeWithString:self.textView.text];
     
 }
 
+//扫描二维码
 - (IBAction)readButton:(id)sender {
     
     TYGQRCodeReaderViewController *read = [[TYGQRCodeReaderViewController alloc] init];
 
     [read successReadQRCode:^(NSString *codeString) {
-        NSLog(@"123:::%@",codeString);
+        self.textView.text = codeString;
+        [self createQRCodeWithString:codeString];
+        
     }];
 
     [self presentViewController:read animated:YES completion:^{
@@ -57,6 +69,7 @@
     }];
 }
 
+//颜色变化按钮点击事件
 - (IBAction)viewClick:(UITapGestureRecognizer *)sender {
     
     UIView *view = sender.view;
@@ -75,22 +88,26 @@
             break;
     }
     
-    [self createQRCode];
+    NSString *string = [self.textView text];
+    [self createQRCodeWithString:string];
 }
 
-
+//QRCode容错级别
 - (IBAction)levelSegValueChanged:(id)sender {
     
-    [self createQRCode];
+    NSString *string = [self.textView text];
+    [self createQRCodeWithString:string];
 }
 
-- (void)createQRCode{
+//创建QRCode
+- (void)createQRCodeWithString:(NSString *)codeString{
     NSString *string = [self.textView text];
-
+    /*
     //方法一：
     TYGQRCodeCreate *tygQRCode2 = [[TYGQRCodeCreate alloc] initWithQRCodeString:string width:250];
     self.imageView.image = tygQRCode2.QRCodeImage;
-
+     */
+    
     //方法二：
     TYGQRCodeCreate *tygQRCode = [[TYGQRCodeCreate alloc] init];
     tygQRCode.qrString = string;
@@ -99,6 +116,7 @@
     tygQRCode.qrColor = qrColor;
     tygQRCode.qrBackGroundColor = qrBackGroundColor;
     self.imageView.image = [tygQRCode createQRCodeImage];
+     
 }
 
 
