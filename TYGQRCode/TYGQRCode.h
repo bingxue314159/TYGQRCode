@@ -20,6 +20,7 @@ typedef NS_ENUM(NSUInteger, QRLevelEnum) {
 typedef NS_ENUM(NSUInteger, FilterGradientEnum) {
     FilterGradientNone, //无
     FilterGradientLinear,   //线性渐变梯度
+    FilterGradientSmoothLinear, //线性渐变梯度
     FilterGradientRadial,   //辐射渐变梯度
     FilterGradientRectWithGaussian, //高斯渐变梯度
 };

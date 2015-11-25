@@ -61,6 +61,12 @@
 
             break;
         }
+        case FilterGradientSmoothLinear:{
+            //线性梯度2
+            CIFilter *radialFilter = [self filterSmoothLinearGradient];
+            filterOutputImage = [radialFilter outputImage];
+            break;
+        }
         case FilterGradientRadial: {
             //半径梯度
             CIFilter *radialFilter = [self filterRadialGradient];
@@ -240,6 +246,50 @@
     
 //   还有 CISmoothLinearGradient
     CIFilter *grand = [CIFilter filterWithName:@"CILinearGradient"];
+    [grand setDefaults];
+    [grand setValue:[CIVector vectorWithCGPoint:CGPointMake(0, 0)] forKey:@"inputPoint0"];
+    [grand setValue:[CIVector vectorWithCGPoint:CGPointMake(self.qrWidth, self.qrWidth)] forKey:@"inputPoint1"];
+    
+    CIColor *color0 = [CIColor colorWithCGColor:self.filterGradientColor0.CGColor];
+    CIColor *color1 = [CIColor colorWithCGColor:self.filterGradientColor1.CGColor];
+    [grand setValue:color0 forKey:@"inputColor0"];
+    [grand setValue:color1 forKey:@"inputColor1"];
+    
+    return grand;
+}
+
+/**
+ *  线性梯度2
+ */
+-(CIFilter *)filterSmoothLinearGradient{
+    
+    /*
+     [Linear Gradient] CILinearGradient
+     inputPoint1 : {
+     CIAttributeClass = CIVector;
+     CIAttributeDefault = "[200 200]";
+     CIAttributeType = CIAttributeTypePosition;
+     }
+     
+     inputPoint0 : {
+     CIAttributeClass = CIVector;
+     CIAttributeDefault = "[0 0]";
+     CIAttributeType = CIAttributeTypePosition;
+     }
+     
+     inputColor1 : {
+     CIAttributeClass = CIColor;
+     CIAttributeDefault = "(0 0 0 1)";
+     }
+     
+     inputColor0 : {
+     CIAttributeClass = CIColor;
+     CIAttributeDefault = "(1 1 1 1)";
+     }
+     */
+    
+    //   还有 CISmoothLinearGradient
+    CIFilter *grand = [CIFilter filterWithName:@"CISmoothLinearGradient"];
     [grand setDefaults];
     [grand setValue:[CIVector vectorWithCGPoint:CGPointMake(0, 0)] forKey:@"inputPoint0"];
     [grand setValue:[CIVector vectorWithCGPoint:CGPointMake(self.qrWidth, self.qrWidth)] forKey:@"inputPoint1"];
