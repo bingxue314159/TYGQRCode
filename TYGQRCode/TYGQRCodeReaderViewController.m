@@ -13,6 +13,9 @@
     AVCaptureSession * session;//输入输出的中间桥梁
     AVCaptureVideoPreviewLayer *previewLayer;
     
+    UIView *anView;
+    NSInteger anViewStatus;//-2:向上扫描，-1：向上暂停，1：向下暂停，2：向下扫描
+    
     void(^_successReadQRCode)(NSString *codeString);
 }
 
@@ -23,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
     BOOL flag = [self startReading];
     if (!flag) {
         //摄像设备不能用
@@ -48,6 +50,7 @@
     [self stopReading];
 }
 
+//开启扫描功能
 - (BOOL)startReading{
     //获取摄像设备
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -87,22 +90,23 @@
     
     //开始捕获
     [session startRunning];
+    [self starAnimation];
     
     return YES;
 }
 
+//关闭扫描功能
 -(void)stopReading{
     if (session) {
         [session stopRunning];
         session = nil;
     }
     
-    if (previewLayer) {
-        [previewLayer removeFromSuperlayer];
-    }
+    [self stopAnimation];
     
 }
 
+//按钮点击事件
 - (IBAction)cancalButton:(id)sender {
     [self stopReading];
     
@@ -111,7 +115,75 @@
     }];
 }
 
+//开始动画
+- (void)starAnimation{
+    
+    if (nil == anView) {
+        anView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 220, 2)];
+        anView.backgroundColor = [UIColor redColor];
+        [self.imageView addSubview:anView];
+        anViewStatus = 2;
+    }
+    
+    if (anViewStatus == 1) {
+        anViewStatus = 2;
+    }
+    else if (anViewStatus == -1){
+        anViewStatus = -2;
+    }
+
+    [self runAnimation];
+}
+
+- (void)runAnimation{
+    
+    if (anViewStatus == 2 || anViewStatus == -2) {
+        
+        CGRect newFrame = anView.frame;
+        CGFloat maxH = 220;
+        
+        if (anViewStatus == 2) {
+            //向下游动
+            CGFloat maxY = CGRectGetMaxY(newFrame);
+            if (maxY < maxH) {
+                newFrame.origin.y = maxY;
+            }
+            else{
+                anViewStatus = -2;
+            }
+        }
+        else{
+            //向上游动
+            CGFloat minY = CGRectGetMinY(newFrame);
+            if (minY > 0) {
+                newFrame.origin.y = minY - 2;
+            }
+            else{
+                anViewStatus = 2;
+            }
+        }
+        
+        [UIView animateWithDuration:0.01f animations:^{
+            anView.frame = newFrame;
+        } completion:^(BOOL finished) {
+            [self runAnimation];
+        }];
+    }
+}
+
+//停止动画
+- (void)stopAnimation{
+
+    if (anViewStatus == 2) {
+        anViewStatus = 1;
+    }
+    else if (anViewStatus == -2){
+        anViewStatus = -1;
+    }
+}
+
 #pragma mark - tool
+//计算扫描框尺寸
 - (CGRect)imageRectSale{
     CGFloat screenW = [[UIScreen mainScreen] bounds].size.width;
     CGFloat screenH = [[UIScreen mainScreen] bounds].size.height;
@@ -139,6 +211,7 @@
         if (_successReadQRCode) {
             _successReadQRCode(metadataObject.stringValue);
         }
+        [self stopAnimation];
 
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:metadataObject.stringValue delegate:self cancelButtonTitle:@"继续扫描" otherButtonTitles:@"确定并退出", nil];
         alert.tag = 1;
@@ -166,6 +239,7 @@
             switch (buttonIndex) {
                 case 0:{
                     [session startRunning];
+                    [self starAnimation];
                     break;
                 }
                 case 1:{

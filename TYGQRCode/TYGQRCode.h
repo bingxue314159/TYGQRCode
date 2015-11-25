@@ -44,13 +44,13 @@ typedef NS_ENUM(NSUInteger, FilterGradientEnum) {
  *  @param tygQRCode   参数对象
  *  @param QRCode      生成的二维码对象
  */
-+ (void)createQRCode:(TYGQRCode *)tygQRCode myQRCode:(void(^)(TYGQRCode *myQRCode,NSError *error))myQRCode;
++ (void)createQRCode:(TYGQRCode *)tygQRCode myQRCode:(void(^)(TYGQRCode *myQRCode,NSError *error))myQRCode NS_AVAILABLE_IOS(7_0);
 
 /**
  *  从照片中直接识别二维码
  *  @param qrCodeImage 带二维码的图片
  *  @param myQRCode    二维码包含的内容
  */
-+ (void)readQRCodeFromImage:(UIImage *)qrCodeImage myQRCode:(void(^)(NSString *qrString,NSError *error))myQRCode NS_AVAILABLE(10_10, 8_0);
++ (void)readQRCodeFromImage:(UIImage *)qrCodeImage myQRCode:(void(^)(NSString *qrString,NSError *error))myQRCode NS_AVAILABLE_IOS(8_0);
 
 @end
