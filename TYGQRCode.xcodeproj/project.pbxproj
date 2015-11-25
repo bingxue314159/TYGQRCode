@@ -15,7 +15,7 @@
 		08AC18AD1B72F6D500DB7C2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AC18AC1B72F6D500DB7C2B /* Images.xcassets */; };
 		08AC18B01B72F6D500DB7C2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AC18AE1B72F6D500DB7C2B /* LaunchScreen.xib */; };
 		08AC18BC1B72F6D500DB7C2B /* TYGQRCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18BB1B72F6D500DB7C2B /* TYGQRCodeTests.m */; };
-		08AC18C81B72F73500DB7C2B /* TYGQRCodeCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18C71B72F73500DB7C2B /* TYGQRCodeCreate.m */; };
+		08AC18C81B72F73500DB7C2B /* TYGQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18C71B72F73500DB7C2B /* TYGQRCode.m */; };
 		08AC18CB1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */; };
 		08AC18CD1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */; };
 		08ECB5341B7AD312006B9C06 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ECB5331B7AD312006B9C06 /* ThirdViewController.m */; };
@@ -47,8 +47,8 @@
 		08AC18B51B72F6D500DB7C2B /* TYGQRCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TYGQRCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AC18BA1B72F6D500DB7C2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08AC18BB1B72F6D500DB7C2B /* TYGQRCodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGQRCodeTests.m; sourceTree = "<group>"; };
-		08AC18C61B72F73500DB7C2B /* TYGQRCodeCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYGQRCodeCreate.h; sourceTree = "<group>"; };
-		08AC18C71B72F73500DB7C2B /* TYGQRCodeCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYGQRCodeCreate.m; sourceTree = "<group>"; };
+		08AC18C61B72F73500DB7C2B /* TYGQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYGQRCode.h; sourceTree = "<group>"; };
+		08AC18C71B72F73500DB7C2B /* TYGQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYGQRCode.m; sourceTree = "<group>"; };
 		08AC18C91B733ADA00DB7C2B /* TYGQRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYGQRCodeReaderViewController.h; sourceTree = "<group>"; };
 		08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYGQRCodeReaderViewController.m; sourceTree = "<group>"; };
 		08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TYGQRCodeReaderViewController.xib; sourceTree = "<group>"; };
@@ -145,8 +145,8 @@
 		08AC18C51B72F70B00DB7C2B /* TYGQRCode */ = {
 			isa = PBXGroup;
 			children = (
-				08AC18C61B72F73500DB7C2B /* TYGQRCodeCreate.h */,
-				08AC18C71B72F73500DB7C2B /* TYGQRCodeCreate.m */,
+				08AC18C61B72F73500DB7C2B /* TYGQRCode.h */,
+				08AC18C71B72F73500DB7C2B /* TYGQRCode.m */,
 				08AC18C91B733ADA00DB7C2B /* TYGQRCodeReaderViewController.h */,
 				08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */,
 				08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */,
@@ -255,7 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08AC18C81B72F73500DB7C2B /* TYGQRCodeCreate.m in Sources */,
+				08AC18C81B72F73500DB7C2B /* TYGQRCode.m in Sources */,
 				08AC18A81B72F6D500DB7C2B /* SecondViewController.m in Sources */,
 				08AC18A21B72F6D500DB7C2B /* AppDelegate.m in Sources */,
 				08AC18A51B72F6D500DB7C2B /* FirstViewController.m in Sources */,

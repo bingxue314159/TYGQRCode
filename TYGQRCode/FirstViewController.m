@@ -7,7 +7,7 @@
 //
 
 #import "FirstViewController.h"
-#import "TYGQRCodeCreate.h"
+#import "TYGQRCode.h"
 #import "TYGQRCodeReaderViewController.h"
 
 @interface FirstViewController (){
@@ -92,30 +92,50 @@
     [self createQRCodeWithString:string];
 }
 
-//QRCode容错级别
-- (IBAction)levelSegValueChanged:(id)sender {
+
+- (IBAction)segValueChanged:(id)sender {
     
-    NSString *string = [self.textView text];
-    [self createQRCodeWithString:string];
+    UISegmentedControl *seg = sender;
+
+    switch (seg.tag) {
+        case 0:{
+            //QRCode容错级别
+            NSString *string = [self.textView text];
+            [self createQRCodeWithString:string];
+            break;
+        }
+        case 1:{
+            //梯度
+            NSString *string = [self.textView text];
+            [self createQRCodeWithString:string];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 //创建QRCode
 - (void)createQRCodeWithString:(NSString *)codeString{
     NSString *string = [self.textView text];
-    /*
-    //方法一：
-    TYGQRCodeCreate *tygQRCode2 = [[TYGQRCodeCreate alloc] initWithQRCodeString:string width:250];
-    self.imageView.image = tygQRCode2.QRCodeImage;
-     */
     
     //方法二：
-    TYGQRCodeCreate *tygQRCode = [[TYGQRCodeCreate alloc] init];
+    TYGQRCode *tygQRCode = [[TYGQRCode alloc] init];
     tygQRCode.qrString = string;
     tygQRCode.qrWidth = 250;
     tygQRCode.qrLevel = self.levelSeg.selectedSegmentIndex;
     tygQRCode.qrColor = qrColor;
     tygQRCode.qrBackGroundColor = qrBackGroundColor;
-    self.imageView.image = [tygQRCode createQRCodeImage];
+    tygQRCode.filterGradient = self.filterSeg.selectedSegmentIndex;
+    
+    [TYGQRCode createQRCode:tygQRCode myQRCode:^(TYGQRCode *myQRCode, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error.domain);
+        }
+        else{
+            self.imageView.image = myQRCode.QRCodeImage;
+        }
+    }];
      
 }
 

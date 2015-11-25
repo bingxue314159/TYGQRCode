@@ -1,15 +1,17 @@
 //
-//  TYGQRCodeCreate.m
+//  TYGQRCode.m
 //  TYGQRCode
 //
 //  Created by tanyugang on 15/8/6.
 //  Copyright (c) 2015年 tanyugang. All rights reserved.
 //
 
-#import "TYGQRCodeCreate.h"
+#import "TYGQRCode.h"
 
-@implementation TYGQRCodeCreate{
+@implementation TYGQRCode{
     NSString *qrLevelStr;
+    
+    TYGQRCode *actionQRCode;
 }
 
 - (instancetype)init
@@ -21,22 +23,8 @@
     return self;
 }
 
-
-- (instancetype)initWithQRCodeString:(NSString *)string width:(CGFloat)width{
-    
-    self = [super init];
-    if (self) {
-        [self initData];
-        
-        self.qrString = string;
-        self.qrWidth = width;
-        
-        [self createQRCodeImage];
-    }
-    return self;
-}
-
 - (void)initData{
+    
     self.backgroundColor = [UIColor whiteColor];
     self.qrString = @"";
     self.qrLevel = QRLevelM;
@@ -44,8 +32,8 @@
     self.qrBackGroundColor = [UIColor whiteColor];
     self.qrWidth = 200;
     
-    self.color0 = [UIColor orangeColor];
-    self.color1 = [UIColor yellowColor];
+    self.filterGradientColor0 = [UIColor orangeColor];//梯度
+    self.filterGradientColor1 = [UIColor redColor];
 }
 
 - (UIImage *)createQRCodeImage{
@@ -59,24 +47,59 @@
     [filter setValue:qrLevelStr forKey:@"inputCorrectionLevel"];
     CIImage *outputImage0 = [filter outputImage];
     
-    //创建一个颜色滤镜,黑白色
-    CIFilter *colorFilter = [self filterColorWithCIImage:outputImage0];
-//    CIImage *outputImage1 = [colorFilter outputImage];
-//    
-//    //渐变
-//    CIFilter *radialFilter = [self filterRadialGradient];
-//    CIImage *outputImage2 = [radialFilter outputImage];
-//    
-//    //混合滤镜
-//    CIFilter *lastFilter = [CIFilter filterWithName:@"CISourceAtopCompositing"];
-//    [lastFilter setValue:outputImage2 forKey:kCIInputImageKey];
-//    [lastFilter setValue:outputImage1 forKey:kCIInputBackgroundImageKey];
+    //滤镜
+    CIImage *filterOutputImage;//其它滤镜得出的结果
+    switch (self.filterGradient) {
+        case FilterGradientNone: {
+            //无
+            break;
+        }
+        case FilterGradientLinear: {
+            //线性梯度
+            CIFilter *radialFilter = [self filterLinearGradient];
+            filterOutputImage = [radialFilter outputImage];
+
+            break;
+        }
+        case FilterGradientRadial: {
+            //半径梯度
+            CIFilter *radialFilter = [self filterRadialGradient];
+            filterOutputImage = [radialFilter outputImage];
+            break;
+        }
+        case FilterGradientRectWithGaussian: {
+            CIFilter *radialFilter = [self filterRectWithGaussianGradient];
+            filterOutputImage = [radialFilter outputImage];
+            //高斯梯度
+            break;
+        }
+        default: {
+            break;
+        }
+    }
     
-    CIImage *outputImage = [colorFilter outputImage];
+    //创建一个颜色滤镜
+    CIFilter *colorFilter = [self filterColorWithCIImage:outputImage0];
+    CIImage *colorOutputImage = [colorFilter outputImage];
+    
+    CIImage *outputImage;
+    if (filterOutputImage) {
+        //混合滤镜，CILightenBlendMode,CIMaximumCompositing,CIScreenBlendMode
+
+        CIFilter *lastFilter = [CIFilter filterWithName:@"CIMaximumCompositing"];//CISourceAtopCompositing
+        [lastFilter setDefaults];
+        [lastFilter setValue:filterOutputImage forKey:@"inputImage"];
+        [lastFilter setValue:colorOutputImage forKey:@"inputBackgroundImage"];
+        
+        outputImage = [lastFilter outputImage];
+    }
+    else{
+        outputImage = colorOutputImage;
+    }
     
     //返回二维码image
     CIContext *context = [CIContext contextWithOptions:nil];
-    CGImageRef cgImage = [context createCGImage:outputImage fromRect:[outputImage extent]];
+    CGImageRef cgImage = [context createCGImage:outputImage fromRect:[colorOutputImage extent]];
     
     UIImage *image = [UIImage imageWithCGImage:cgImage scale:1.0 orientation:UIImageOrientationUp];
 
@@ -190,13 +213,39 @@
  */
 -(CIFilter *)filterLinearGradient{
     
+    /*
+     [Linear Gradient] CILinearGradient
+     inputPoint1 : {
+     CIAttributeClass = CIVector;
+     CIAttributeDefault = "[200 200]";
+     CIAttributeType = CIAttributeTypePosition;
+     }
+     
+     inputPoint0 : {
+     CIAttributeClass = CIVector;
+     CIAttributeDefault = "[0 0]";
+     CIAttributeType = CIAttributeTypePosition;
+     }
+     
+     inputColor1 : {
+     CIAttributeClass = CIColor;
+     CIAttributeDefault = "(0 0 0 1)";
+     }
+     
+     inputColor0 : {
+     CIAttributeClass = CIColor;
+     CIAttributeDefault = "(1 1 1 1)";
+     }
+     */
+    
+//   还有 CISmoothLinearGradient
     CIFilter *grand = [CIFilter filterWithName:@"CILinearGradient"];
     [grand setDefaults];
     [grand setValue:[CIVector vectorWithCGPoint:CGPointMake(0, 0)] forKey:@"inputPoint0"];
     [grand setValue:[CIVector vectorWithCGPoint:CGPointMake(self.qrWidth, self.qrWidth)] forKey:@"inputPoint1"];
     
-    CIColor *color0 = [CIColor colorWithCGColor:self.color0.CGColor];
-    CIColor *color1 = [CIColor colorWithCGColor:self.color1.CGColor];
+    CIColor *color0 = [CIColor colorWithCGColor:self.filterGradientColor0.CGColor];
+    CIColor *color1 = [CIColor colorWithCGColor:self.filterGradientColor1.CGColor];
     [grand setValue:color0 forKey:@"inputColor0"];
     [grand setValue:color1 forKey:@"inputColor1"];
     
@@ -249,12 +298,12 @@
     
     CIFilter *grand = [CIFilter filterWithName:@"CIRadialGradient"];
     [grand setDefaults];
-    [grand setValue:[NSNumber numberWithFloat:5] forKey:@"inputRadius0"];
+    [grand setValue:[NSNumber numberWithFloat:5.0] forKey:@"inputRadius0"];
     [grand setValue:[NSNumber numberWithFloat:self.qrWidth/2.0] forKey:@"inputRadius1"];
     [grand setValue:[CIVector vectorWithCGPoint:CGPointMake(self.qrWidth/2.0, self.qrWidth/2.0)] forKey:@"inputCenter"];
     
-    CIColor *color0 = [CIColor colorWithCGColor:self.color0.CGColor];
-    CIColor *color1 = [CIColor colorWithCGColor:self.color1.CGColor];
+    CIColor *color0 = [CIColor colorWithCGColor:self.filterGradientColor0.CGColor];
+    CIColor *color1 = [CIColor colorWithCGColor:self.filterGradientColor1.CGColor];
     [grand setValue:color0 forKey:@"inputColor0"];
     [grand setValue:color1 forKey:@"inputColor1"];
     
@@ -301,13 +350,65 @@
     [grand setValue:[NSNumber numberWithFloat:self.qrWidth/2.0] forKey:@"inputRadius"];
     [grand setValue:[CIVector vectorWithCGPoint:CGPointMake(self.qrWidth/2.0, self.qrWidth/2.0)] forKey:@"inputCenter"];
     
-    CIColor *color0 = [CIColor colorWithCGColor:self.color0.CGColor];
-    CIColor *color1 = [CIColor colorWithCGColor:self.color1.CGColor];
+    CIColor *color0 = [CIColor colorWithCGColor:self.filterGradientColor0.CGColor];
+    CIColor *color1 = [CIColor colorWithCGColor:self.filterGradientColor1.CGColor];
     [grand setValue:color0 forKey:@"inputColor0"];
     [grand setValue:color1 forKey:@"inputColor1"];
     
     return grand;
 }
 
+
+#pragma mark - 对外开发的方法
+/**
+ *  创建二维码
+ *  @param tygQRCode   参数对象
+ *  @param QRCode      生成的二维码对象
+ */
++ (void)createQRCode:(TYGQRCode *)tygQRCode myQRCode:(void(^)(TYGQRCode *myQRCode,NSError *error))myQRCode{
+    if (nil == tygQRCode) {
+        myQRCode(tygQRCode,[NSError errorWithDomain:@"参数为空" code:0 userInfo:nil]);
+        return;
+    }
+    else if (tygQRCode.qrString.length == 0) {
+        myQRCode(tygQRCode,[NSError errorWithDomain:@"内容为空" code:0 userInfo:nil]);
+        return;
+    }
+    
+    [tygQRCode createQRCodeImage];
+    
+    myQRCode(tygQRCode,nil);
+}
+
+/**
+ *  从照片中直接识别二维码
+ *  @param qrCodeImage 带二维码的图片
+ *  @param myQRCode    二维码包含的内容
+ */
++ (void)readQRCodeFromImage:(UIImage *)qrCodeImage myQRCode:(void(^)(NSString *qrString,NSError *error))myQRCode;{
+    
+    UIImage * srcImage = qrCodeImage;
+    if (nil == srcImage) {
+        myQRCode(nil,[NSError errorWithDomain:@"未传入图片" code:0 userInfo:nil]);
+        return;
+    }
+    
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+    CIImage *image = [CIImage imageWithCGImage:srcImage.CGImage];
+    NSArray *features = [detector featuresInImage:image];
+    if (features.count) {
+        CIQRCodeFeature *feature = [features firstObject];
+        
+        NSString *result = feature.messageString;
+        
+        myQRCode(result,nil);
+    }
+    else{
+        myQRCode(nil,[NSError errorWithDomain:@"未能识别出二维码" code:0 userInfo:nil]);
+        return;
+    }
+    
+}
 
 @end

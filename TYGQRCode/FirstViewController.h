@@ -13,8 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *levelSeg;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *filterSeg;
 
-- (IBAction)levelSegValueChanged:(id)sender;//容错级别
+- (IBAction)segValueChanged:(id)sender;
 - (IBAction)createButton:(id)sender;
 - (IBAction)readButton:(id)sender;
 
