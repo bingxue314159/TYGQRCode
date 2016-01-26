@@ -39,17 +39,25 @@ typedef NS_ENUM(NSUInteger, FilterGradientEnum) {
 
 @property (nonatomic, strong, readonly) UIImage *QRCodeImage;/**< 二维码图片 */
 
+
+/**
+ *  以默认值创建二维码
+ *  @param qrCodeStr 二维码内容
+ *  @param myQRCode  回调
+ */
++ (void)createQRCodeWithString:(NSString *)qrCodeStr myQRCode:(void(^)(TYGQRCode *myQRCode,NSError *error))myQRCode NS_AVAILABLE_IOS(7_0);
+
 /**
  *  创建二维码
  *  @param tygQRCode   参数对象
- *  @param QRCode      生成的二维码对象
+ *  @param myQRCode  回调
  */
 + (void)createQRCode:(TYGQRCode *)tygQRCode myQRCode:(void(^)(TYGQRCode *myQRCode,NSError *error))myQRCode NS_AVAILABLE_IOS(7_0);
 
 /**
  *  从照片中直接识别二维码
  *  @param qrCodeImage 带二维码的图片
- *  @param myQRCode    二维码包含的内容
+ *  @param myQRCode  回调
  */
 + (void)readQRCodeFromImage:(UIImage *)qrCodeImage myQRCode:(void(^)(NSString *qrString,NSError *error))myQRCode NS_AVAILABLE_IOS(8_0);
 

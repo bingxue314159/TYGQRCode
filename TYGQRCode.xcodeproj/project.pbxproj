@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080865261C570CBB008CF25C /* TYGQRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 080865251C570CBB008CF25C /* TYGQRCodeReader.m */; };
 		08AC189F1B72F6D500DB7C2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC189E1B72F6D500DB7C2B /* main.m */; };
 		08AC18A21B72F6D500DB7C2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18A11B72F6D500DB7C2B /* AppDelegate.m */; };
 		08AC18A51B72F6D500DB7C2B /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18A41B72F6D500DB7C2B /* FirstViewController.m */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		080865241C570CBB008CF25C /* TYGQRCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYGQRCodeReader.h; sourceTree = "<group>"; };
+		080865251C570CBB008CF25C /* TYGQRCodeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYGQRCodeReader.m; sourceTree = "<group>"; };
 		08AC18991B72F6D500DB7C2B /* TYGQRCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TYGQRCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AC189D1B72F6D500DB7C2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08AC189E1B72F6D500DB7C2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,15 +104,18 @@
 				08AC18A11B72F6D500DB7C2B /* AppDelegate.m */,
 				08AC18A31B72F6D500DB7C2B /* FirstViewController.h */,
 				08AC18A41B72F6D500DB7C2B /* FirstViewController.m */,
-				08AC18A61B72F6D500DB7C2B /* SecondViewController.h */,
-				08AC18A71B72F6D500DB7C2B /* SecondViewController.m */,
-				08ECB5321B7AD312006B9C06 /* ThirdViewController.h */,
-				08ECB5331B7AD312006B9C06 /* ThirdViewController.m */,
-				08AC18C51B72F70B00DB7C2B /* TYGQRCode */,
-				08AC18A91B72F6D500DB7C2B /* Main.storyboard */,
 				08AC18AC1B72F6D500DB7C2B /* Images.xcassets */,
 				08AC18AE1B72F6D500DB7C2B /* LaunchScreen.xib */,
+				08AC18A91B72F6D500DB7C2B /* Main.storyboard */,
+				08AC18A61B72F6D500DB7C2B /* SecondViewController.h */,
+				08AC18A71B72F6D500DB7C2B /* SecondViewController.m */,
+				08AC18C91B733ADA00DB7C2B /* TYGQRCodeReaderViewController.h */,
+				08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */,
+				08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */,
+				08ECB5321B7AD312006B9C06 /* ThirdViewController.h */,
+				08ECB5331B7AD312006B9C06 /* ThirdViewController.m */,
 				08AC189C1B72F6D500DB7C2B /* Supporting Files */,
+				08AC18C51B72F70B00DB7C2B /* TYGQRCode */,
 			);
 			path = TYGQRCode;
 			sourceTree = "<group>";
@@ -117,29 +123,29 @@
 		08AC189C1B72F6D500DB7C2B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				08AC189D1B72F6D500DB7C2B /* Info.plist */,
 				08AC18CE1B73576400DB7C2B /* iTunesArtwork */,
 				08AC18CF1B73576400DB7C2B /* iTunesArtwork@2x */,
-				08AC189D1B72F6D500DB7C2B /* Info.plist */,
 				08AC189E1B72F6D500DB7C2B /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		08AC18B81B72F6D500DB7C2B /* TYGQRCodeTests */ = {
 			isa = PBXGroup;
 			children = (
-				08AC18BB1B72F6D500DB7C2B /* TYGQRCodeTests.m */,
 				08AC18B91B72F6D500DB7C2B /* Supporting Files */,
+				08AC18BB1B72F6D500DB7C2B /* TYGQRCodeTests.m */,
 			);
 			path = TYGQRCodeTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		08AC18B91B72F6D500DB7C2B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				08AC18BA1B72F6D500DB7C2B /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		08AC18C51B72F70B00DB7C2B /* TYGQRCode */ = {
@@ -147,11 +153,10 @@
 			children = (
 				08AC18C61B72F73500DB7C2B /* TYGQRCode.h */,
 				08AC18C71B72F73500DB7C2B /* TYGQRCode.m */,
-				08AC18C91B733ADA00DB7C2B /* TYGQRCodeReaderViewController.h */,
-				08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */,
-				08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */,
+				080865241C570CBB008CF25C /* TYGQRCodeReader.h */,
+				080865251C570CBB008CF25C /* TYGQRCodeReader.m */,
 			);
-			name = TYGQRCode;
+			path = TYGQRCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08AC18C81B72F73500DB7C2B /* TYGQRCode.m in Sources */,
+				080865261C570CBB008CF25C /* TYGQRCodeReader.m in Sources */,
 				08AC18A81B72F6D500DB7C2B /* SecondViewController.m in Sources */,
 				08AC18A21B72F6D500DB7C2B /* AppDelegate.m in Sources */,
 				08AC18A51B72F6D500DB7C2B /* FirstViewController.m in Sources */,
@@ -290,6 +296,7 @@
 				08AC18AA1B72F6D500DB7C2B /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		08AC18AE1B72F6D500DB7C2B /* LaunchScreen.xib */ = {
@@ -298,6 +305,7 @@
 				08AC18AF1B72F6D500DB7C2B /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -389,7 +397,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = TYGQRCode/Info.plist;
+				INFOPLIST_FILE = "TYGQRCode/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -399,7 +407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = TYGQRCode/Info.plist;
+				INFOPLIST_FILE = "TYGQRCode/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -417,7 +425,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TYGQRCodeTests/Info.plist;
+				INFOPLIST_FILE = "TYGQRCodeTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TYGQRCode.app/TYGQRCode";
@@ -432,7 +440,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TYGQRCodeTests/Info.plist;
+				INFOPLIST_FILE = "TYGQRCodeTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TYGQRCode.app/TYGQRCode";

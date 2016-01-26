@@ -412,6 +412,26 @@
 #pragma mark - 对外开发的方法
 /**
  *  创建二维码
+ *  @param qrCodeStr 二维码内容
+ *  @param myQRCode  回调
+ */
++ (void)createQRCodeWithString:(NSString *)qrCodeStr myQRCode:(void(^)(TYGQRCode *myQRCode,NSError *error))myQRCode NS_AVAILABLE_IOS(7_0){
+    
+    TYGQRCode *qrCode = [[TYGQRCode alloc] init];
+    qrCode.qrString = qrCodeStr;
+    
+    if (qrCode.qrString.length == 0) {
+        myQRCode(qrCode,[NSError errorWithDomain:@"内容为空" code:0 userInfo:nil]);
+        return;
+    }
+    
+    [qrCode createQRCodeImage];
+    
+    myQRCode(qrCode,nil);
+}
+
+/**
+ *  创建二维码
  *  @param tygQRCode   参数对象
  *  @param QRCode      生成的二维码对象
  */
