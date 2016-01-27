@@ -146,4 +146,33 @@
     
 }
 
+/**
+ *  从照片中直接识别二维码
+ *  @param qrCodeImage 带二维码的图片
+ *  @param myQRCode    回调
+ */
++ (void)readQRCodeFromImage:(UIImage *)qrCodeImage myQRCode:(void(^)(CIQRCodeFeature *qrCode,NSError *error))myQRCode NS_AVAILABLE_IOS(8_0){
+    
+    UIImage * srcImage = qrCodeImage;
+    if (nil == srcImage) {
+        myQRCode(nil,[NSError errorWithDomain:@"未传入图片" code:0 userInfo:nil]);
+        return;
+    }
+    
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+    CIImage *image = [CIImage imageWithCGImage:srcImage.CGImage];
+    NSArray *features = [detector featuresInImage:image];
+    if (features.count) {
+        CIQRCodeFeature *feature = [features firstObject];
+        
+        myQRCode(feature,nil);
+    }
+    else{
+        myQRCode(nil,[NSError errorWithDomain:@"未能识别出二维码" code:0 userInfo:nil]);
+        return;
+    }
+    
+}
+
 @end

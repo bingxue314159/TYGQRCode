@@ -20,6 +20,9 @@
 		08AC18CB1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */; };
 		08AC18CD1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */; };
 		08ECB5341B7AD312006B9C06 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08ECB5331B7AD312006B9C06 /* ThirdViewController.m */; };
+		08F0ABB61C58544E00477B16 /* 公测版1.2.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F0ABB51C58544E00477B16 /* 公测版1.2.6.png */; };
+		08F0ABB81C5854D200477B16 /* uuxoo.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F0ABB71C5854D200477B16 /* uuxoo.png */; };
+		08F0ABBA1C585C7E00477B16 /* qrImage3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08F0ABB91C585C7E00477B16 /* qrImage3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		08AC18CF1B73576400DB7C2B /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 		08ECB5321B7AD312006B9C06 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		08ECB5331B7AD312006B9C06 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		08F0ABB51C58544E00477B16 /* 公测版1.2.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "公测版1.2.6.png"; sourceTree = "<group>"; };
+		08F0ABB71C5854D200477B16 /* uuxoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uuxoo.png; sourceTree = "<group>"; };
+		08F0ABB91C585C7E00477B16 /* qrImage3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = qrImage3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,22 +106,12 @@
 		08AC189B1B72F6D500DB7C2B /* TYGQRCode */ = {
 			isa = PBXGroup;
 			children = (
-				08AC18A01B72F6D500DB7C2B /* AppDelegate.h */,
-				08AC18A11B72F6D500DB7C2B /* AppDelegate.m */,
-				08AC18A31B72F6D500DB7C2B /* FirstViewController.h */,
-				08AC18A41B72F6D500DB7C2B /* FirstViewController.m */,
+				08F0ABB21C58532200477B16 /* ViewControllers */,
+				08AC18C51B72F70B00DB7C2B /* TYGQRCode */,
 				08AC18AC1B72F6D500DB7C2B /* Images.xcassets */,
 				08AC18AE1B72F6D500DB7C2B /* LaunchScreen.xib */,
 				08AC18A91B72F6D500DB7C2B /* Main.storyboard */,
-				08AC18A61B72F6D500DB7C2B /* SecondViewController.h */,
-				08AC18A71B72F6D500DB7C2B /* SecondViewController.m */,
-				08AC18C91B733ADA00DB7C2B /* TYGQRCodeReaderViewController.h */,
-				08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */,
-				08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */,
-				08ECB5321B7AD312006B9C06 /* ThirdViewController.h */,
-				08ECB5331B7AD312006B9C06 /* ThirdViewController.m */,
 				08AC189C1B72F6D500DB7C2B /* Supporting Files */,
-				08AC18C51B72F70B00DB7C2B /* TYGQRCode */,
 			);
 			path = TYGQRCode;
 			sourceTree = "<group>";
@@ -123,6 +119,7 @@
 		08AC189C1B72F6D500DB7C2B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				08F0ABB31C58543C00477B16 /* source */,
 				08AC189D1B72F6D500DB7C2B /* Info.plist */,
 				08AC18CE1B73576400DB7C2B /* iTunesArtwork */,
 				08AC18CF1B73576400DB7C2B /* iTunesArtwork@2x */,
@@ -138,7 +135,7 @@
 				08AC18BB1B72F6D500DB7C2B /* TYGQRCodeTests.m */,
 			);
 			path = TYGQRCodeTests;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		08AC18B91B72F6D500DB7C2B /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -157,6 +154,66 @@
 				080865251C570CBB008CF25C /* TYGQRCodeReader.m */,
 			);
 			path = TYGQRCode;
+			sourceTree = "<group>";
+		};
+		08F0ABAF1C5852A300477B16 /* first */ = {
+			isa = PBXGroup;
+			children = (
+				08AC18A31B72F6D500DB7C2B /* FirstViewController.h */,
+				08AC18A41B72F6D500DB7C2B /* FirstViewController.m */,
+				08AC18C91B733ADA00DB7C2B /* TYGQRCodeReaderViewController.h */,
+				08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */,
+				08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */,
+			);
+			path = first;
+			sourceTree = "<group>";
+		};
+		08F0ABB01C5852AD00477B16 /* second */ = {
+			isa = PBXGroup;
+			children = (
+				08AC18A61B72F6D500DB7C2B /* SecondViewController.h */,
+				08AC18A71B72F6D500DB7C2B /* SecondViewController.m */,
+			);
+			path = second;
+			sourceTree = "<group>";
+		};
+		08F0ABB11C5852BA00477B16 /* third */ = {
+			isa = PBXGroup;
+			children = (
+				08ECB5321B7AD312006B9C06 /* ThirdViewController.h */,
+				08ECB5331B7AD312006B9C06 /* ThirdViewController.m */,
+			);
+			path = third;
+			sourceTree = "<group>";
+		};
+		08F0ABB21C58532200477B16 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				08AC18A01B72F6D500DB7C2B /* AppDelegate.h */,
+				08AC18A11B72F6D500DB7C2B /* AppDelegate.m */,
+				08F0ABAF1C5852A300477B16 /* first */,
+				08F0ABB01C5852AD00477B16 /* second */,
+				08F0ABB11C5852BA00477B16 /* third */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		08F0ABB31C58543C00477B16 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				08F0ABB41C58544700477B16 /* images */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		08F0ABB41C58544700477B16 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				08F0ABB91C585C7E00477B16 /* qrImage3.jpg */,
+				08F0ABB71C5854D200477B16 /* uuxoo.png */,
+				08F0ABB51C58544E00477B16 /* 公测版1.2.6.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +298,10 @@
 			files = (
 				08AC18AB1B72F6D500DB7C2B /* Main.storyboard in Resources */,
 				08AC18B01B72F6D500DB7C2B /* LaunchScreen.xib in Resources */,
+				08F0ABBA1C585C7E00477B16 /* qrImage3.jpg in Resources */,
+				08F0ABB81C5854D200477B16 /* uuxoo.png in Resources */,
 				08AC18CD1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib in Resources */,
+				08F0ABB61C58544E00477B16 /* 公测版1.2.6.png in Resources */,
 				08AC18AD1B72F6D500DB7C2B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

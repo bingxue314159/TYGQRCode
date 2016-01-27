@@ -31,4 +31,11 @@
  */
 - (void)stopReader;
 
+/**
+ *  从照片中直接识别二维码
+ *  @param qrCodeImage 带二维码的图片
+ *  @param myQRCode    回调
+ */
++ (void)readQRCodeFromImage:(UIImage *)qrCodeImage myQRCode:(void(^)(CIQRCodeFeature *qrCode,NSError *error))myQRCode NS_AVAILABLE_IOS(8_0);
+
 @end
