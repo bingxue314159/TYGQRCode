@@ -101,7 +101,9 @@
 //停止扫描
 - (void)stopReader {
     
-    [self.captureSession stopRunning];
+    if (self.captureSession) {
+        [self.captureSession stopRunning];
+    }
 }
 
 #pragma mark - tool

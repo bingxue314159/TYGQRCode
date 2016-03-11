@@ -27,7 +27,7 @@
     
     self.backgroundColor = [UIColor whiteColor];
     self.qrString = @"";
-    self.qrLevel = QRLevelM;
+    self.qrLevel = TYGQRLevelM;
     self.qrColor = [UIColor blackColor];
     self.qrBackGroundColor = [UIColor whiteColor];
     self.qrWidth = 200;
@@ -121,22 +121,22 @@
     return _QRCodeImage;
 }
 
-- (void)setQrLevel:(QRLevelEnum)qrLevel{
+- (void)setQrLevel:(TYGQRLevelEnum)qrLevel{
     _qrLevel = qrLevel;
     switch (_qrLevel) {
-        case QRLevelM:{
+        case TYGQRLevelM:{
             qrLevelStr = @"M";
             break;
         }
-        case QRLevelH:{
+        case TYGQRLevelH:{
             qrLevelStr = @"H";
             break;
         }
-        case QRLevelL:{
+        case TYGQRLevelL:{
             qrLevelStr = @"L";
             break;
         }
-        case QRLevelQ:{
+        case TYGQRLevelQ:{
             qrLevelStr = @"Q";
             break;
         }

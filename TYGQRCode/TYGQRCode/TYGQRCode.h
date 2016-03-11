@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 //纠错级别
-typedef NS_ENUM(NSUInteger, QRLevelEnum) {
-    QRLevelL,
-    QRLevelM,
-    QRLevelQ,
-    QRLevelH
+typedef NS_ENUM(NSUInteger, TYGQRLevelEnum) {
+    TYGQRLevelL,
+    TYGQRLevelM,
+    TYGQRLevelQ,
+    TYGQRLevelH
 };
 
 //渐变滤镜
@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, FilterGradientEnum) {
 @property (nonatomic, strong) NSString *qrString;/**< 内容 */
 @property (nonatomic, strong) UIColor *qrColor;/**< 二维码颜色(默认:黑色) */
 @property (nonatomic, strong) UIColor *qrBackGroundColor;/**< 二维码背景颜色(默认:白色) */
-@property (nonatomic, assign) QRLevelEnum qrLevel;/**< 纠错级别(默认:M),L: 7%,M: 15%,Q: 25%,H: 30% */
+@property (nonatomic, assign) TYGQRLevelEnum qrLevel;/**< 纠错级别(默认:M),L: 7%,M: 15%,Q: 25%,H: 30% */
 @property (nonatomic, assign) NSUInteger qrWidth;/**< 宽度(默认:200) */
 
 @property (nonatomic, assign) FilterGradientEnum filterGradient;/**< 渐变梯度 */

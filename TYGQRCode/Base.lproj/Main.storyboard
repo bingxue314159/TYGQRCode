@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -622,11 +622,11 @@ e-mail:bingxue314159@163.com
                                 <exclude reference="ong-Sn-gzl"/>
                                 <exclude reference="6ey-lS-nAE"/>
                                 <exclude reference="HyZ-fR-9MV"/>
+                                <exclude reference="6Pf-h2-10D"/>
+                                <exclude reference="ERm-bN-ful"/>
                                 <exclude reference="1Hg-ik-i51"/>
                                 <exclude reference="Sag-ej-6lH"/>
                                 <exclude reference="ZEd-vt-uyO"/>
-                                <exclude reference="6Pf-h2-10D"/>
-                                <exclude reference="ERm-bN-ful"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -642,11 +642,11 @@ e-mail:bingxue314159@163.com
                                 <include reference="ong-Sn-gzl"/>
                                 <include reference="6ey-lS-nAE"/>
                                 <include reference="HyZ-fR-9MV"/>
+                                <include reference="6Pf-h2-10D"/>
+                                <include reference="ERm-bN-ful"/>
                                 <include reference="1Hg-ik-i51"/>
                                 <include reference="Sag-ej-6lH"/>
                                 <include reference="ZEd-vt-uyO"/>
-                                <include reference="6Pf-h2-10D"/>
-                                <include reference="ERm-bN-ful"/>
                             </mask>
                         </variation>
                     </view>

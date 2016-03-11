@@ -24,7 +24,7 @@
  *  开始扫描
  *  @param view 视频区域(默认为扫描区域)
  */
-- (void)startReaderOnView:(UIView *)view callBack:(void(^)(AVMetadataMachineReadableCodeObject *qrCode,NSError *error))callBack;
+- (void)startReaderOnView:(UIView *)view callBack:(void(^)(AVMetadataMachineReadableCodeObject *qrCode,NSError *error))callBack NS_AVAILABLE_IOS(7_0);
 
 /**
  *  停止扫描
