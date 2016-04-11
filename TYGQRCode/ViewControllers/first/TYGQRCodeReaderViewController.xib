@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TYGQRCodeReaderViewController">
@@ -35,174 +35,77 @@
                         </mask>
                     </variation>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQT-Qx-8jJ">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45P-Ic-coS">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="64" id="ZXQ-4O-lDe"/>
+                        <constraint firstAttribute="height" constant="30" id="LDp-T3-Gl4">
+                            <variation key="widthClass=compact" constant="45"/>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="90" id="VId-5V-dFx">
+                            <variation key="widthClass=compact" constant="160"/>
+                        </constraint>
                     </constraints>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="ZXQ-4O-lDe"/>
+                            <exclude reference="LDp-T3-Gl4"/>
+                            <exclude reference="VId-5V-dFx"/>
                         </mask>
                     </variation>
                     <variation key="widthClass=compact">
                         <mask key="constraints">
-                            <include reference="ZXQ-4O-lDe"/>
+                            <include reference="LDp-T3-Gl4"/>
+                            <include reference="VId-5V-dFx"/>
                         </mask>
                     </variation>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3d-G0-JO2">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXs-5I-oex">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OV4-oB-Bnk">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45P-Ic-coS">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="LDp-T3-Gl4">
-                                    <variation key="widthClass=compact" constant="45"/>
-                                </constraint>
-                                <constraint firstAttribute="width" constant="90" id="VId-5V-dFx">
-                                    <variation key="widthClass=compact" constant="160"/>
-                                </constraint>
-                            </constraints>
-                            <state key="normal" title="取消">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="LDp-T3-Gl4"/>
-                                    <exclude reference="VId-5V-dFx"/>
-                                </mask>
-                            </variation>
-                            <variation key="widthClass=compact">
-                                <mask key="constraints">
-                                    <include reference="LDp-T3-Gl4"/>
-                                    <include reference="VId-5V-dFx"/>
-                                </mask>
-                            </variation>
-                            <connections>
-                                <action selector="cancalButton:" destination="-1" eventType="touchUpInside" id="i8B-Nv-yxK"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="45P-Ic-coS" secondAttribute="bottom" constant="8" id="O6l-fs-wCd"/>
-                        <constraint firstItem="45P-Ic-coS" firstAttribute="top" secondItem="OV4-oB-Bnk" secondAttribute="top" constant="8" id="dR8-0N-YpJ"/>
-                        <constraint firstAttribute="centerX" secondItem="45P-Ic-coS" secondAttribute="centerX" id="xJr-hl-cE4"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="subviews">
-                            <exclude reference="45P-Ic-coS"/>
-                        </mask>
-                        <mask key="constraints">
-                            <exclude reference="O6l-fs-wCd"/>
-                            <exclude reference="dR8-0N-YpJ"/>
-                            <exclude reference="xJr-hl-cE4"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="subviews">
-                            <include reference="45P-Ic-coS"/>
-                        </mask>
-                        <mask key="constraints">
-                            <include reference="O6l-fs-wCd"/>
-                            <exclude reference="dR8-0N-YpJ"/>
-                            <include reference="xJr-hl-cE4"/>
-                        </mask>
-                    </variation>
-                </view>
+                    <connections>
+                        <action selector="cancalButton:" destination="-1" eventType="touchUpInside" id="i8B-Nv-yxK"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="OV4-oB-Bnk" firstAttribute="top" secondItem="kXs-5I-oex" secondAttribute="bottom" id="7Rp-qA-BKu"/>
+                <constraint firstItem="oix-wu-RAq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="8My-Zp-YKD"/>
                 <constraint firstAttribute="centerX" secondItem="oix-wu-RAq" secondAttribute="centerX" id="C5t-Wx-tRg"/>
-                <constraint firstItem="oix-wu-RAq" firstAttribute="leading" secondItem="J3d-G0-JO2" secondAttribute="trailing" id="F48-q8-7LQ"/>
-                <constraint firstItem="OV4-oB-Bnk" firstAttribute="top" secondItem="J3d-G0-JO2" secondAttribute="bottom" id="F9h-jR-2jc"/>
-                <constraint firstAttribute="trailing" secondItem="OV4-oB-Bnk" secondAttribute="trailing" id="HIg-yY-rDX"/>
-                <constraint firstItem="kXs-5I-oex" firstAttribute="top" secondItem="MQT-Qx-8jJ" secondAttribute="bottom" id="Ikf-rx-7SN"/>
-                <constraint firstItem="OV4-oB-Bnk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Nl6-tF-JbW"/>
-                <constraint firstItem="J3d-G0-JO2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OC0-WD-2ZA"/>
-                <constraint firstItem="oix-wu-RAq" firstAttribute="top" secondItem="MQT-Qx-8jJ" secondAttribute="bottom" constant="8" id="PLb-qS-Gr0">
-                    <variation key="widthClass=compact" constant="0.0"/>
-                </constraint>
-                <constraint firstItem="OV4-oB-Bnk" firstAttribute="top" secondItem="oix-wu-RAq" secondAttribute="bottom" id="Sg0-wj-Hsr"/>
-                <constraint firstAttribute="trailing" secondItem="kXs-5I-oex" secondAttribute="trailing" id="U8K-Dl-ZaJ"/>
-                <constraint firstAttribute="trailing" secondItem="MQT-Qx-8jJ" secondAttribute="trailing" id="XqC-ZF-caF"/>
-                <constraint firstItem="J3d-G0-JO2" firstAttribute="top" secondItem="MQT-Qx-8jJ" secondAttribute="bottom" id="dVf-8A-Lie"/>
+                <constraint firstItem="45P-Ic-coS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="P83-iB-14q"/>
+                <constraint firstAttribute="bottom" secondItem="45P-Ic-coS" secondAttribute="bottom" constant="8" id="QX2-3q-CIW"/>
                 <constraint firstItem="oix-wu-RAq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="jIG-pa-xpu"/>
-                <constraint firstItem="kXs-5I-oex" firstAttribute="leading" secondItem="oix-wu-RAq" secondAttribute="trailing" id="mO9-ei-hRf"/>
-                <constraint firstItem="MQT-Qx-8jJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="o3K-pa-3Dd"/>
-                <constraint firstItem="MQT-Qx-8jJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pcs-KY-wUA"/>
-                <constraint firstAttribute="bottom" secondItem="OV4-oB-Bnk" secondAttribute="bottom" id="zWE-3G-Vvf"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="oix-wu-RAq"/>
-                    <exclude reference="MQT-Qx-8jJ"/>
-                    <exclude reference="J3d-G0-JO2"/>
-                    <exclude reference="kXs-5I-oex"/>
-                    <exclude reference="OV4-oB-Bnk"/>
+                    <exclude reference="45P-Ic-coS"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="P83-iB-14q"/>
+                    <exclude reference="QX2-3q-CIW"/>
+                    <exclude reference="8My-Zp-YKD"/>
                     <exclude reference="C5t-Wx-tRg"/>
-                    <exclude reference="F48-q8-7LQ"/>
-                    <exclude reference="PLb-qS-Gr0"/>
                     <exclude reference="jIG-pa-xpu"/>
-                    <exclude reference="OC0-WD-2ZA"/>
-                    <exclude reference="dVf-8A-Lie"/>
-                    <exclude reference="XqC-ZF-caF"/>
-                    <exclude reference="o3K-pa-3Dd"/>
-                    <exclude reference="pcs-KY-wUA"/>
-                    <exclude reference="7Rp-qA-BKu"/>
-                    <exclude reference="F9h-jR-2jc"/>
-                    <exclude reference="HIg-yY-rDX"/>
-                    <exclude reference="Nl6-tF-JbW"/>
-                    <exclude reference="Sg0-wj-Hsr"/>
-                    <exclude reference="zWE-3G-Vvf"/>
-                    <exclude reference="Ikf-rx-7SN"/>
-                    <exclude reference="U8K-Dl-ZaJ"/>
-                    <exclude reference="mO9-ei-hRf"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="oix-wu-RAq"/>
-                    <include reference="MQT-Qx-8jJ"/>
-                    <include reference="J3d-G0-JO2"/>
-                    <include reference="kXs-5I-oex"/>
-                    <include reference="OV4-oB-Bnk"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="C5t-Wx-tRg"/>
-                    <include reference="F48-q8-7LQ"/>
-                    <include reference="PLb-qS-Gr0"/>
                     <exclude reference="jIG-pa-xpu"/>
-                    <include reference="OC0-WD-2ZA"/>
-                    <include reference="dVf-8A-Lie"/>
-                    <include reference="XqC-ZF-caF"/>
-                    <include reference="o3K-pa-3Dd"/>
-                    <include reference="pcs-KY-wUA"/>
-                    <include reference="7Rp-qA-BKu"/>
-                    <include reference="F9h-jR-2jc"/>
-                    <include reference="HIg-yY-rDX"/>
-                    <include reference="Nl6-tF-JbW"/>
-                    <include reference="Sg0-wj-Hsr"/>
-                    <include reference="zWE-3G-Vvf"/>
-                    <include reference="Ikf-rx-7SN"/>
-                    <include reference="U8K-Dl-ZaJ"/>
-                    <include reference="mO9-ei-hRf"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="45P-Ic-coS"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="P83-iB-14q"/>
+                    <include reference="QX2-3q-CIW"/>
+                    <include reference="8My-Zp-YKD"/>
                 </mask>
             </variation>
         </view>

@@ -13,6 +13,7 @@
 @interface TYGQRCodeReaderViewController ()<AVCaptureMetadataOutputObjectsDelegate,UIAlertViewDelegate>{
     
     TYGQRCodeReader *reader;
+    CGRect scanFrame;//imageView.frame
     
     UIView *anView;
     NSInteger anViewStatus;//-2:向上扫描，-1：向上暂停，1：向下暂停，2：向下扫描
@@ -28,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    CGFloat screenW = [[UIScreen mainScreen] bounds].size.width;
+    scanFrame = CGRectMake((screenW - 220)/2.0, 64, 220, 220);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +42,7 @@
     [super viewWillAppear:animated];
     
     [self starScan];
-
+    [self drawPath];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -53,16 +56,19 @@
 }
 
 - (void)starScan{
-    CGFloat screenW = [[UIScreen mainScreen] bounds].size.width;
     
     reader = [TYGQRCodeReader sharedReader];
     
+    [self.imageView updateConstraints];
+    [self.imageView layoutIfNeeded];
+    
     NSLog(@"imageView.frame = %@",NSStringFromCGRect(self.imageView.frame));
-    reader.scanFrame = CGRectMake((screenW - 220)/2.0, 64, 220, 220);
+    reader.scanFrame = scanFrame;
     [self starAnimation];
     [reader startReaderOnView:self.view callBack:^(AVMetadataMachineReadableCodeObject *qrCode, NSError *error) {
         
         [reader stopReader];
+        [self stopAnimation];
         
         if (error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.domain message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
@@ -77,7 +83,7 @@
             [alert show];
         }
         
-        [self stopAnimation];
+        
     }];
 }
 
@@ -88,6 +94,23 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+
+//绘制遮盖层
+- (void)drawPath{
+    
+    UIBezierPath *clipPath = [UIBezierPath bezierPathWithRect:self.view.frame];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRect:scanFrame];
+    
+    [clipPath appendPath:maskPath];
+    clipPath.usesEvenOddFillRule = YES;
+    
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.fillRule = kCAFillRuleEvenOdd;
+    maskLayer.fillColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7].CGColor;
+    maskLayer.path = [clipPath CGPath];
+    
+    [self.view.layer addSublayer:maskLayer];
 }
 
 //开始动画

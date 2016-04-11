@@ -78,6 +78,10 @@
     if (!CGRectEqualToRect(CGRectZero, self.scanFrame)) {
         self.captureMetadataOutput.rectOfInterest=[self imageRectSale:self.scanFrame];//设置条形码扫描区域，它的四个值的范围都是0-1，表示比例
     }
+    else{
+        callBack(nil,[NSError errorWithDomain:@"未设置扫描区域" code:0 userInfo:nil]);
+        return;
+    }
 
     [self.captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];//设置代理 在主线程里刷新
     
