@@ -76,7 +76,9 @@
     self.captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
     
     if (!CGRectEqualToRect(CGRectZero, self.scanFrame)) {
-        self.captureMetadataOutput.rectOfInterest=[self imageRectSale:self.scanFrame];//设置条形码扫描区域，它的四个值的范围都是0-1，表示比例
+        
+        CGRect viewBounds = view.bounds;//[UIScreen mainScreen].bounds
+        self.captureMetadataOutput.rectOfInterest=[self imageRectSale:self.scanFrame readerViewBounds:viewBounds];//设置条形码扫描区域，它的四个值的范围都是0-1，表示比例
     }
     else{
         callBack(nil,[NSError errorWithDomain:@"未设置扫描区域" code:0 userInfo:nil]);
@@ -97,8 +99,10 @@
     captureVideoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;// AVLayerVideoGravityResizeAspect is default.
     captureVideoPreviewLayer.frame = view.bounds;
     
+    //[view.layer insertSublayer:captureVideoPreviewLayer atIndex:0];
     [view.layer addSublayer:captureVideoPreviewLayer];
     
+    //开始捕获
     [self.captureSession startRunning];
 }
 
@@ -111,10 +115,11 @@
 }
 
 #pragma mark - tool
-//计算扫描框尺寸
-- (CGRect)imageRectSale:(CGRect)viewFrame{
-    CGFloat screenW = [[UIScreen mainScreen] bounds].size.width;
-    CGFloat screenH = [[UIScreen mainScreen] bounds].size.height;
+//计算扫描框尺寸(扫描区域的比例关系)
+- (CGRect)imageRectSale:(CGRect)viewFrame readerViewBounds:(CGRect)readerViewBounds{
+
+    CGFloat screenW = CGRectGetWidth(readerViewBounds);
+    CGFloat screenH = CGRectGetHeight(readerViewBounds);
     
     CGFloat imageW = CGRectGetWidth(viewFrame);
     CGFloat imageH = CGRectGetHeight(viewFrame);
@@ -129,7 +134,6 @@
     return CGRectMake(saleX, saleY, saleW, saleH);
     
 }
-
 
 // =============================================================================
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
@@ -166,10 +170,12 @@
     }
     
     CIContext *context = [CIContext contextWithOptions:nil];
+    //初始化一个监测器
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+    //识别
     CIImage *image = [CIImage imageWithCGImage:srcImage.CGImage];
     NSArray *features = [detector featuresInImage:image];
-    if (features.count) {
+    if (features.count > 0) {
         CIQRCodeFeature *feature = [features firstObject];
         
         myQRCode(feature,nil);
