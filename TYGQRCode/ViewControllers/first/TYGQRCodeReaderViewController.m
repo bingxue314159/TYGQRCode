@@ -59,16 +59,20 @@
     
     reader = [TYGQRCodeReader sharedReader];
     
-    [self.imageView updateConstraints];
-    [self.imageView layoutIfNeeded];
+//    [self.imageView updateConstraints];
+//    [self.imageView layoutIfNeeded];
     
     NSLog(@"imageView.frame = %@",NSStringFromCGRect(self.imageView.frame));
     reader.scanFrame = scanFrame;
     [self starAnimation];
+    
+    __weak typeof(self) weakSelf = self;
     [reader startReaderOnView:self.view callBack:^(AVMetadataMachineReadableCodeObject *qrCode, NSError *error) {
         
+        __strong __typeof(self) strongSelf = weakSelf;
+        
         [reader stopReader];
-        [self stopAnimation];
+        [strongSelf stopAnimation];
         
         if (error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.domain message:@"" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
@@ -96,7 +100,7 @@
     }];
 }
 
-//绘制遮盖层
+//绘制遮盖层 - 设置中间透空区域
 - (void)drawPath{
     
     UIBezierPath *clipPath = [UIBezierPath bezierPathWithRect:self.view.frame];

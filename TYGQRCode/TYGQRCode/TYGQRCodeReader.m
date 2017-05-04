@@ -56,6 +56,14 @@
         return;
     }
     
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if(authStatus == AVAuthorizationStatusDenied){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"相机权限受限" message:@"请在iPhone的\"设置->隐私->相机\"选项中,允许\"APP\"访问您的相机." delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alert show];
+        
+        return;
+    }
+    
     //创建输入流
     NSError *error;
     AVCaptureDeviceInput *captureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
@@ -66,25 +74,14 @@
     
     //初始化链接对象
     self.captureSession = [[AVCaptureSession alloc] init];
-    self.captureSession.sessionPreset = AVCaptureSessionPresetHigh;//高质量采集率
-    
+    self.captureSession.sessionPreset = AVCaptureSessionPresetHigh;//高质量采集率AVCaptureSessionPreset1920x1080
+    //AVCaptureSessionPresetHigh
     if ([self.captureSession canAddInput:captureDeviceInput]) {
         [self.captureSession addInput:captureDeviceInput];
     }
     
     //创建输出流
     self.captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
-    
-    if (!CGRectEqualToRect(CGRectZero, self.scanFrame)) {
-        
-        CGRect viewBounds = view.bounds;//[UIScreen mainScreen].bounds
-        self.captureMetadataOutput.rectOfInterest=[self imageRectSale:self.scanFrame readerViewBounds:viewBounds];//设置条形码扫描区域，它的四个值的范围都是0-1，表示比例
-    }
-    else{
-        callBack(nil,[NSError errorWithDomain:@"未设置扫描区域" code:0 userInfo:nil]);
-        return;
-    }
-
     [self.captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];//设置代理 在主线程里刷新
     
     if ([self.captureSession canAddOutput:self.captureMetadataOutput]) {
@@ -102,6 +99,31 @@
     //[view.layer insertSublayer:captureVideoPreviewLayer atIndex:0];
     [view.layer addSublayer:captureVideoPreviewLayer];
     
+    //设置rectOfInterest
+    if (!CGRectEqualToRect(CGRectZero, self.scanFrame)) {
+        
+        /**
+         * NG - 此处设置会失效，不建议使用
+        CGRect viewBounds = view.bounds;//[UIScreen mainScreen].bounds
+        self.captureMetadataOutput.rectOfInterest = [self imageRectSale:self.scanFrame readerViewBounds:viewBounds];//设置条形码扫描区域，它的四个值的范围都是0-1，表示比例
+        */
+        __weak typeof(self) weakSelf = self;
+        [[NSNotificationCenter defaultCenter]addObserverForName:AVCaptureInputPortFormatDescriptionDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+            
+            __strong __typeof(self) strongSelf = weakSelf;
+//            AVCaptureMetadataOutput *output = strongSelf.captureSession.outputs.firstObject;
+//            output.rectOfInterest = [captureVideoPreviewLayer metadataOutputRectOfInterestForRect:strongSelf.scanFrame];
+            
+            strongSelf.captureMetadataOutput.rectOfInterest = [captureVideoPreviewLayer metadataOutputRectOfInterestForRect:strongSelf.scanFrame];
+        }];
+    }
+    else{
+        callBack(nil,[NSError errorWithDomain:@"未设置扫描区域" code:0 userInfo:nil]);
+        return;
+    }
+    
+    
+
     //开始捕获
     [self.captureSession startRunning];
 }
@@ -115,9 +137,15 @@
 }
 
 #pragma mark - tool
-//计算扫描框尺寸(扫描区域的比例关系)
-- (CGRect)imageRectSale:(CGRect)viewFrame readerViewBounds:(CGRect)readerViewBounds{
+/**
+ 计算扫描框尺寸(扫描区域的比例关系)
 
+ @param viewFrame 扫描区域frame
+ @param readerViewBounds 所在图层bounds
+ @return CGRect
+ */
+- (CGRect)imageRectSale:(CGRect)viewFrame readerViewBounds:(CGRect)readerViewBounds{
+    //原理见http://www.cocoachina.com/ios/20141225/10763.html
     CGFloat screenW = CGRectGetWidth(readerViewBounds);
     CGFloat screenH = CGRectGetHeight(readerViewBounds);
     
@@ -131,8 +159,10 @@
     CGFloat saleW = imageH/screenH;
     CGFloat saleH = imageW/screenW;
     
-    return CGRectMake(saleX, saleY, saleW, saleH);
+    CGRect lastRect = CGRectMake(saleX, saleY, saleW, saleH);
+
     
+    return lastRect;
 }
 
 // =============================================================================

@@ -15,7 +15,6 @@
 		08AC18AB1B72F6D500DB7C2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AC18A91B72F6D500DB7C2B /* Main.storyboard */; };
 		08AC18AD1B72F6D500DB7C2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AC18AC1B72F6D500DB7C2B /* Images.xcassets */; };
 		08AC18B01B72F6D500DB7C2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AC18AE1B72F6D500DB7C2B /* LaunchScreen.xib */; };
-		08AC18BC1B72F6D500DB7C2B /* TYGQRCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18BB1B72F6D500DB7C2B /* TYGQRCodeTests.m */; };
 		08AC18C81B72F73500DB7C2B /* TYGQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18C71B72F73500DB7C2B /* TYGQRCode.m */; };
 		08AC18CB1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AC18CA1B733ADA00DB7C2B /* TYGQRCodeReaderViewController.m */; };
 		08AC18CD1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AC18CC1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib */; };
@@ -24,16 +23,6 @@
 		08F0ABB81C5854D200477B16 /* uuxoo.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F0ABB71C5854D200477B16 /* uuxoo.png */; };
 		08F0ABBA1C585C7E00477B16 /* qrImage3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08F0ABB91C585C7E00477B16 /* qrImage3.jpg */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		08AC18B61B72F6D500DB7C2B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08AC18911B72F6D500DB7C2B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 08AC18981B72F6D500DB7C2B;
-			remoteInfo = TYGQRCode;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		080865241C570CBB008CF25C /* TYGQRCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYGQRCodeReader.h; sourceTree = "<group>"; };
@@ -50,9 +39,6 @@
 		08AC18AA1B72F6D500DB7C2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		08AC18AC1B72F6D500DB7C2B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		08AC18AF1B72F6D500DB7C2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		08AC18B51B72F6D500DB7C2B /* TYGQRCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TYGQRCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		08AC18BA1B72F6D500DB7C2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		08AC18BB1B72F6D500DB7C2B /* TYGQRCodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYGQRCodeTests.m; sourceTree = "<group>"; };
 		08AC18C61B72F73500DB7C2B /* TYGQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYGQRCode.h; sourceTree = "<group>"; };
 		08AC18C71B72F73500DB7C2B /* TYGQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYGQRCode.m; sourceTree = "<group>"; };
 		08AC18C91B733ADA00DB7C2B /* TYGQRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYGQRCodeReaderViewController.h; sourceTree = "<group>"; };
@@ -75,13 +61,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		08AC18B21B72F6D500DB7C2B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -89,7 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				08AC189B1B72F6D500DB7C2B /* TYGQRCode */,
-				08AC18B81B72F6D500DB7C2B /* TYGQRCodeTests */,
 				08AC189A1B72F6D500DB7C2B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				08AC18991B72F6D500DB7C2B /* TYGQRCode.app */,
-				08AC18B51B72F6D500DB7C2B /* TYGQRCodeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,23 +101,6 @@
 				08AC18CE1B73576400DB7C2B /* iTunesArtwork */,
 				08AC18CF1B73576400DB7C2B /* iTunesArtwork@2x */,
 				08AC189E1B72F6D500DB7C2B /* main.m */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		08AC18B81B72F6D500DB7C2B /* TYGQRCodeTests */ = {
-			isa = PBXGroup;
-			children = (
-				08AC18B91B72F6D500DB7C2B /* Supporting Files */,
-				08AC18BB1B72F6D500DB7C2B /* TYGQRCodeTests.m */,
-			);
-			path = TYGQRCodeTests;
-			sourceTree = "<group>";
-		};
-		08AC18B91B72F6D500DB7C2B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				08AC18BA1B72F6D500DB7C2B /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -236,24 +196,6 @@
 			productReference = 08AC18991B72F6D500DB7C2B /* TYGQRCode.app */;
 			productType = "com.apple.product-type.application";
 		};
-		08AC18B41B72F6D500DB7C2B /* TYGQRCodeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 08AC18C21B72F6D500DB7C2B /* Build configuration list for PBXNativeTarget "TYGQRCodeTests" */;
-			buildPhases = (
-				08AC18B11B72F6D500DB7C2B /* Sources */,
-				08AC18B21B72F6D500DB7C2B /* Frameworks */,
-				08AC18B31B72F6D500DB7C2B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				08AC18B71B72F6D500DB7C2B /* PBXTargetDependency */,
-			);
-			name = TYGQRCodeTests;
-			productName = TYGQRCodeTests;
-			productReference = 08AC18B51B72F6D500DB7C2B /* TYGQRCodeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -265,10 +207,7 @@
 				TargetAttributes = {
 					08AC18981B72F6D500DB7C2B = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					08AC18B41B72F6D500DB7C2B = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 08AC18981B72F6D500DB7C2B;
+						DevelopmentTeam = YDCABN4W6L;
 					};
 				};
 			};
@@ -286,7 +225,6 @@
 			projectRoot = "";
 			targets = (
 				08AC18981B72F6D500DB7C2B /* TYGQRCode */,
-				08AC18B41B72F6D500DB7C2B /* TYGQRCodeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -303,13 +241,6 @@
 				08AC18CD1B7346C000DB7C2B /* TYGQRCodeReaderViewController.xib in Resources */,
 				08F0ABB61C58544E00477B16 /* 公测版1.2.6.png in Resources */,
 				08AC18AD1B72F6D500DB7C2B /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		08AC18B31B72F6D500DB7C2B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,23 +262,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		08AC18B11B72F6D500DB7C2B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				08AC18BC1B72F6D500DB7C2B /* TYGQRCodeTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		08AC18B71B72F6D500DB7C2B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 08AC18981B72F6D500DB7C2B /* TYGQRCode */;
-			targetProxy = 08AC18B61B72F6D500DB7C2B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		08AC18A91B72F6D500DB7C2B /* Main.storyboard */ = {
@@ -458,6 +373,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YDCABN4W6L;
 				INFOPLIST_FILE = "TYGQRCode/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -470,47 +386,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YDCABN4W6L;
 				INFOPLIST_FILE = "TYGQRCode/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uuxoo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		08AC18C31B72F6D500DB7C2B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "TYGQRCodeTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.uuxoo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TYGQRCode.app/TYGQRCode";
-			};
-			name = Debug;
-		};
-		08AC18C41B72F6D500DB7C2B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "TYGQRCodeTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.uuxoo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TYGQRCode.app/TYGQRCode";
 			};
 			name = Release;
 		};
@@ -531,15 +412,6 @@
 			buildConfigurations = (
 				08AC18C01B72F6D500DB7C2B /* Debug */,
 				08AC18C11B72F6D500DB7C2B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		08AC18C21B72F6D500DB7C2B /* Build configuration list for PBXNativeTarget "TYGQRCodeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				08AC18C31B72F6D500DB7C2B /* Debug */,
-				08AC18C41B72F6D500DB7C2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
